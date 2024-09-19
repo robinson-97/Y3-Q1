@@ -22,6 +22,10 @@ Route::get('/views/about', function () {
     return view('about');
 });
 
+Route::get('/views/webshop', function () {
+    return view('about');
+});
+
 Route::get('/views/aanvraag', function () {
     return view('aanvraag');
 });

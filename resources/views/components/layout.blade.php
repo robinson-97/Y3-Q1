@@ -21,11 +21,13 @@
         <nav class="nav">
             <ul>
                 <li><a href="{{ url('/') }}">Home</a></li>
+                <li><a href="{{ url('/views/webshop') }}">Webshop</a></li>
                 <li><a href="{{ url('/views/about') }}">About</a></li>
                 <li><a href="{{ url('/views/nieuws') }}">Nieuws</a></li>
                 <li><a href="{{ url('/views/contact') }}">Contact</a></li>
                 <li><a href="{{ url('/views/aanvraag') }}">Aanvraag doen</a></li>
                 <li><a href="{{ url('/views/faq') }}">FAQ</a></li>
+
             </ul>
         </nav>
 
