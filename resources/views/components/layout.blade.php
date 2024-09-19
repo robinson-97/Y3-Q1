@@ -20,14 +20,15 @@
         </div>
         <nav class="nav">
             <ul>
-                <li><a href="views/index">Home</a></li>
-                <li><a href="views/about">About</a></li>
-                <li><a href="views/nieuws">Nieuws</a></li>
-                <li><a href="views/contact">Contact</a></li>
-                <li><a href="views/aanvraag">Aanvraag doen</a></li>
-                <li><a href="views/faq">FAQ</a></li>
+                <li><a href="{{ url('/') }}">Home</a></li>
+                <li><a href="{{ url('/views/about') }}">About</a></li>
+                <li><a href="{{ url('/views/nieuws') }}">Nieuws</a></li>
+                <li><a href="{{ url('/views/contact') }}">Contact</a></li>
+                <li><a href="{{ url('/views/aanvraag') }}">Aanvraag doen</a></li>
+                <li><a href="{{ url('/views/faq') }}">FAQ</a></li>
             </ul>
         </nav>
+
     </div>
 </header>
 <main>
