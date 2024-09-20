@@ -29,3 +29,5 @@ Route::get('/views/webshop', function () {
 Route::get('/views/aanvraag', function () {
     return view('aanvraag');
 });
+
+Route::get('/webshop', [WebshopController::class, 'index']);
