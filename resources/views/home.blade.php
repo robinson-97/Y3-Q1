@@ -2,8 +2,8 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Welcome to UNEED-IT</h1>
-                <p>Your one-stop solution for all your IT needs.</p>
+                <h1 class="h1een">Welcome to UNEED-IT</h1>
+                <p class="pee">Your one-stop solution for all your IT needs.</p>
                 <a href="views/aanvraag" class="btn">Aanvraag doen</a>
             </div>
         </section>

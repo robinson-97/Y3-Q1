@@ -26,6 +26,7 @@
                 <li><a href="{{ url('/views/contact') }}">Contact</a></li>
                 <li><a href="{{ url('/views/aanvraag') }}">Aanvraag doen</a></li>
                 <li><a href="{{ url('/views/faq') }}">FAQ</a></li>
+                <li><a href="{{ url('/views/afspraak') }}">Afspraak maken</a></li>
             </ul>
         </nav>
 
