@@ -26,6 +26,12 @@ Route::get('/views/aanvraag', function () {
     return view('aanvraag');
 });
 
+
 Route::get('/views/afspraak', function () {
     return view('afspraak');
 });
+
+Route::get('/views/bedankt', function () {
+    return view('bedankt');
+});
+

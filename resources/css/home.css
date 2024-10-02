@@ -271,3 +271,88 @@ td:hover {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+/* CSS om de tekstkleur van de tijdslots zwart te maken */
+#calendar td {
+    color: black; /* Zet de kleur van de tekst op zwart */
+}
+
+
+
+//knop//
+
+/* Stijl voor de submit-knop */
+.btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px; /* Zorgt ervoor dat er ruimte is tussen de knop en de vorige elementen */
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+
+//bedankt//
+
+/* Algemene stijl voor de container */
+.confirmation-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f7f9;
+}
+
+.confirmation-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.confirmation-box h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.confirmation-box p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Stijl voor de knop */
+.confirmation-box .btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.confirmation-box .btn:hover {
+    background-color: #0056b3;
+}

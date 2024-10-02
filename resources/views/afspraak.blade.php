@@ -3,61 +3,58 @@
         <h1 id="aanvraag">Waarom wilt u <br>een afspraak inplannen?</h1>
         <div class="container">
 
-            <div class="container">
+            <!-- Kalender voor tijdslots -->
+            <table id="calendar">
+                <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Monday <span id="mondayDate"></span></th>
+                    <th>Tuesday <span id="tuesdayDate"></span></th>
+                    <th>Wednesday <span id="wednesdayDate"></span></th>
+                    <th>Thursday <span id="thursdayDate"></span></th>
+                    <th>Friday <span id="fridayDate"></span></th>
+                    <th>Saturday <span id="saturdayDate"></span></th>
+                    <th>Sunday <span id="sundayDate"></span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Time slots will be dynamically generated -->
+                </tbody>
+            </table>
 
-                <!-- Kalender voor tijdslots -->
-                <table id="calendar">
-                    <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>Monday <span id="mondayDate"></span></th>
-                        <th>Tuesday <span id="tuesdayDate"></span></th>
-                        <th>Wednesday <span id="wednesdayDate"></span></th>
-                        <th>Thursday <span id="thursdayDate"></span></th>
-                        <th>Friday <span id="fridayDate"></span></th>
-                        <th>Saturday <span id="saturdayDate"></span></th>
-                        <th>Sunday <span id="sundayDate"></span></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <!-- Time slots will be dynamically generated -->
-                    </tbody>
-                </table>
+            <!-- Formulier dat verschijnt na het selecteren van een tijdslot -->
+            <div id="appointmentForm" style="display:none;">
+                <h3>Appointment Details</h3>
+                <form method="POST" action="#">
+                    <label for="platform">Selecteer Platform:</label>
+                    <select name="device_type" id="platform" required>
+                        <option></option>
+                        <option value="telefoon">Telefoon</option>
+                        <option value="pc">PC</option>
+                        <option value="appel pc/mac">Apple PC/Mac</option>
+                        <option value="laptop">Laptop</option>
+                        <option value="other">Other</option>
+                    </select>
 
-                <!-- Formulier dat verschijnt na het selecteren van een tijdslot -->
-                <div id="appointmentForm" style="display:none;">
-                    <h3>Appointment Details</h3>
-                    <form method="POST">
-                        <label for="platform">Selecteer Platform:</label>
-                        <select name="device_type" id="platform">
-                            <option></option>
-                            <option value="telefoon">Telefoon</option>
-                            <option value="pc">PC</option>
-                            <option value="appel pc/mac">Apple PC/Mac</option>
-                            <option value="laptop">Laptop</option>
-                            <option value="other">Other</option>
-                        </select>
+                    <label for="computernaam">Computer naam/Telefoon naam:</label>
+                    <input type="text" name="computernaam" id="computernaam" placeholder="Computer Name" required>
 
-                        <label for="computernaam">Computer naam/Telefoon naam:</label>
-                        <input type="text" name="computernaam" placeholder="Computer Name">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="Email" required>
 
-                        <label for="email">Email:</label>
-                        <input type="email" name="email" placeholder="Email">
+                    <label for="telefoonnummer">Telefoon nummer:</label>
+                    <input type="text" name="telefoon_nummer" id="telefoonnummer" placeholder="Phone Number" required>
 
-                        <label for="telefoonnummer">Telefoon nummer:</label>
-                        <input type="text" name="telefoon_nummer" placeholder="Phone Number">
+                    <label for="problems">Wat zijn de problemen met het apparaat?</label>
+                    <textarea name="probleem" id="problems" rows="4" placeholder="Beschrijf de issues..." required></textarea>
 
-                        <label for="problems">Wat zijn de problemen met het apparaat?</label>
-                        <textarea name="probleem" id="problems" rows="4" placeholder="Beschrijf de issues..."></textarea>
-
-                        <button id="confirmButton" class="btn">Confirm Appointment</button>
-                    </form>
-                </div>
+                    <!-- Visuele submit knop onder het formulier -->
+                    <button type="button" class="btn" id="submitButton">Bevestig Afspraak</button>
+                </form>
             </div>
 
             <script>
                 let selectedSlot = null; // Track de geselecteerde tijdslot
-                const confirmButton = document.getElementById("confirmButton");
                 const appointmentForm = document.getElementById("appointmentForm");
 
                 // Functie om tijdslots te genereren
@@ -113,33 +110,8 @@
 
                         // Toon het afspraakformulier als een tijdslot is geselecteerd
                         appointmentForm.style.display = "block";
-                        confirmButton.classList.remove("disabled");
                     }
                 }
-
-                // Functie om de afspraak te bevestigen
-                confirmButton.addEventListener("click", () => {
-                    if (selectedSlot) {
-                        const product = document.getElementById("platform").value;
-                        const problems = document.getElementById("problems").value;
-
-                        if (product && problems) {
-                            selectedSlot.textContent = "Booked";
-                            selectedSlot.classList.add("booked");
-                            selectedSlot.classList.remove("selected");
-
-                            // Reset het formulier en verberg het afspraakformulier
-                            document.getElementById("platform").value = "";
-                            document.getElementById("problems").value = "";
-                            appointmentForm.style.display = "none";
-                            confirmButton.textContent = "Appointment Confirmed";
-                            confirmButton.classList.add("disabled");
-                            confirmButton.setAttribute("disabled", true); // Disable de knop na bevestiging
-                        } else {
-                            alert("Vul alle velden in.");
-                        }
-                    }
-                });
 
                 // Functie om de datums van de huidige week te genereren
                 function generateDates() {
@@ -179,4 +151,3 @@
         </div>
     </section>
 </x-layout>
-
