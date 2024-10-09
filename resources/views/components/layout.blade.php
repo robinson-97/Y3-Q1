@@ -16,18 +16,18 @@
 <header>
     <div class="container">
         <div class="logo">
-            <img src="images/logo.png" alt="UNEED-IT Logo">
+            <img src="{{ asset('images/logo.png') }}" alt="UNEED-IT Logo">
+
         </div>
         <nav class="nav">
             <ul>
                 <li><a href="{{ url('/') }}">Home</a></li>
                 <li><a href="{{ url('/views/about') }}">About</a></li>
-                <li><a href="{{ url('/views/nieuws') }}">Nieuws</a></li>
+                <li><a href="{{ url('/views/nieuws') }}">News</a></li>
                 <li><a href="{{ url('/views/contact') }}">Contact</a></li>
-                <li><a href="{{ url('/views/aanvraag') }}">Aanvraag doen</a></li>
                 <li><a href="{{ url('/views/faq') }}">FAQ</a></li>
-                <li><a href="{{ url('/views/afspraak') }}">Afspraak maken</a></li>
-                <li><a href="{{ url('/views/bedankt') }}">bedankt</a></li>
+                <li><a href="{{ url('/views/afspraak') }}">Appointement</a></li>
+{{--                <li><a href="{{ url('/views/bedankt') }}">bedankt</a></li>--}}
 
             </ul>
         </nav>
