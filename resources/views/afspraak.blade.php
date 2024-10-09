@@ -25,10 +25,11 @@
             <!-- Formulier dat verschijnt na het selecteren van een tijdslot -->
             <div id="appointmentForm" style="display:none;">
                 <h3>Appointment Details</h3>
-                <form method="POST" action="#">
+                <form method="POST" action="bedankt">
+
                     <label for="platform">Selecteer Platform:</label>
                     <select name="device_type" id="platform" required>
-                        <option></option>
+                        <option value=""></option>
                         <option value="telefoon">Telefoon</option>
                         <option value="pc">PC</option>
                         <option value="appel pc/mac">Apple PC/Mac</option>
@@ -48,14 +49,37 @@
                     <label for="problems">Wat zijn de problemen met het apparaat?</label>
                     <textarea name="probleem" id="problems" rows="4" placeholder="Beschrijf de issues..." required></textarea>
 
-                    <!-- Visuele submit knop onder het formulier -->
-                    <button type="button" class="btn" id="submitButton">Bevestig Afspraak</button>
+                    <!-- Button die pas klikbaar wordt als alle velden zijn ingevuld -->
+                    <button type="submit" class="btn" id="submitButton" disabled>Bevestig Afspraak</button>
                 </form>
             </div>
 
             <script>
-                let selectedSlot = null; // Track de geselecteerde tijdslot
                 const appointmentForm = document.getElementById("appointmentForm");
+                const submitButton = document.getElementById("submitButton");
+                const fields = document.querySelectorAll("#appointmentForm input, #appointmentForm select, #appointmentForm textarea");
+
+                // Functie om te controleren of alle velden zijn ingevuld
+                function checkFormValidity() {
+                    let isValid = true;
+
+                    // Loop door alle invoervelden en controleer of ze zijn ingevuld
+                    fields.forEach(field => {
+                        if (field.value.trim() === "") {
+                            isValid = false;
+                        }
+                    });
+
+                    // Button activeren of deactiveren op basis van de geldigheid van het formulier
+                    submitButton.disabled = !isValid;
+                }
+
+                // Eventlistener toevoegen aan elk veld om de validatie in de gaten te houden
+                fields.forEach(field => {
+                    field.addEventListener("input", checkFormValidity);
+                });
+
+                let selectedSlot = null; // Track de geselecteerde tijdslot
 
                 // Functie om tijdslots te genereren
                 function generateTimeSlots() {
@@ -147,7 +171,8 @@
 
     <section class="picture">
         <div class="container">
-            <img src="img/contact_picture.jpg" alt="Contact Picture">
+
         </div>
     </section>
 </x-layout>
+

@@ -35,3 +35,23 @@ Route::get('/views/bedankt', function () {
     return view('bedankt');
 });
 
+Route::get('/bedankt', function () {
+    return view('bedankt');
+});
+
+
+
+
+
+Route::get('/afspraak', function () {
+    return view('afspraak');
+});
+
+
+Route::get('/afspraak', [AfspraakController::class, 'index'])->name('afspraak');
+
+use App\Http\Controllers\AfspraakController;
+
+Route::get('/afspraak', [AfspraakController::class, 'index'])->name('afspraak');
+
+
