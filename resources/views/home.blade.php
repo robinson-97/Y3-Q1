@@ -11,7 +11,7 @@
             <div class="container">
                 <div class="service">
                     <h3>Phone Repair</h3>
-                    <p>We specialize in repairing all types of phones, including iPhones, Android devices, and more.</p>
+                    <p>We specialize in repairing all types of phones, including iPhones, Android devices, and more. POENAIVEL</p>
                 </div>
                 <div class="picture">
                 </div>
