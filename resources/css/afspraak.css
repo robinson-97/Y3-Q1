@@ -1,0 +1,82 @@
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+td {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+td.booked {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+td.selected {
+    background-color: #f1c40f;
+    cursor: pointer;
+}
+
+td:hover {
+    background-color: #f1f1f1;
+}
+
+#confirmButton {
+    display: none;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#confirmButton.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#appointmentForm {
+    display: none;
+    margin-top: 20px;
+}
+
+#appointmentForm input, #appointmentForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+</style>

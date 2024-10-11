@@ -1,7 +1,14 @@
-
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
+}
+
+.h1een {
+    color: black;
+}
+
+.pee {
+    color: black;
 }
 
 body {
@@ -23,8 +30,13 @@ header {
     background-color: #2c3e50;
     color: #fff;
     padding: 20px 0;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Duidelijkere schaduw */
+    transition: background-color 0.3s ease;
+    position: relative; /* Zorg ervoor dat de header relatief gepositioneerd is */
+    z-index: 10; /* Zorg ervoor dat de header boven andere elementen staat */
 }
+
+
 
 .logo img {
     height: 40px;
@@ -54,13 +66,13 @@ header {
     background-color: #2c3e50;
 }
 
+
+
 main {
     padding: 20px 0;
 }
 
-
-
-
+/* Hero section */
 .hero {
     background-image: url('../img/back.jpg');
     background-size: cover;
@@ -68,18 +80,23 @@ main {
     color: #fff;
     padding: 100px 0;
     text-align: center;
+    display: flex;
+    flex-direction: column; /* Zorgt ervoor dat de elementen onder elkaar staan */
+    justify-content: center;
+    align-items: center;
 }
 
-.hero h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
+.h1een {
+    font-size: 48px; /* Grotere fontgrootte voor de titel */
+    font-weight: bold;
+    color: #333; /* Kleur voor de titel */
+    margin-bottom: 10px; /* Ruimte onder de titel */
 }
 
-.hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+.peenpm {
+    font-size: 24px; /* Grotere fontgrootte voor de subtekst */
+    color: #000; /* Zwarte kleur voor de subtekst */
+    margin-bottom: 30px; /* Ruimte onder de subtekst */
 }
 
 .btn {
@@ -165,3 +182,501 @@ footer {
 footer p {
     margin-bottom: 0;
 }
+
+#aanvraag {
+    color: black;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: right;
+    margin-left: 5em;
+}
+
+//Afspraak//
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: linear-gradient(135deg, #2b5a9b 0%, #5f00b3 100%);
+
+    color: white;
+}
+
+td {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+td.booked {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+td.selected {
+    background-color: #f1c40f;
+    cursor: pointer;
+}
+
+td:hover {
+    background-color: #f1f1f1;
+}
+
+#confirmButton {
+    display: none;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#confirmButton.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#appointmentForm {
+    display: none;
+    margin-top: 20px;
+}
+
+#appointmentForm input, #appointmentForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* CSS om de tekstkleur van de tijdslots zwart te maken */
+#calendar td {
+    color: black; /* Zet de kleur van de tekst op zwart */
+}
+
+//knop//
+
+/* Stijl voor de submit-knop */
+.btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px; /* Zorgt ervoor dat er ruimte is tussen de knop en de vorige elementen */
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+//bedankt//
+
+/* Algemene stijl voor de container */
+.confirmation-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f7f9;
+}
+
+.confirmation-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.confirmation-box h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.confirmation-box p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Stijl voor de knop */
+.confirmation-box .btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.confirmation-box .btn:hover {
+    background-color: #0056b3;
+}
+
+.btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px; /* Voeg wat padding toe voor ruimte rond de inhoud */
+}
+
+.logo img {
+    max-width: 150px; /* Pas de breedte van het logo aan naar wens */
+    height: auto;
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Laat wat ruimte tussen de links */
+}
+
+.nav ul li {
+    display: inline-block;
+}
+
+.nav ul li a {
+    /*text-decoration: none;*/
+    /*color: #000; !* Pas de kleur aan naar wens *!*/
+    /*font-weight: bold;*/
+    /*padding: 10px 15px;*/
+}
+
+.nav ul li a:hover {
+    /*color: #007BFF; !* Kleur bij hover *!*/
+}
+
+/* Basic layout and font styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+}
+
+/* Navigation */
+nav {
+    background-color: #2c3e50;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Add responsive styles for mobile */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .h1een {
+        font-size: 36px;
+    }
+
+    .pee {
+        font-size: 18px;
+    }
+}
+
+/* FAQ specifieke stijlen */
+
+.faq-section {
+    background-color: #f7f7f7; /* Achtergrondkleur voor de FAQ-sectie */
+    padding: 20px; /* Padding rondom de FAQ-sectie */
+}
+
+.faq-title {
+    text-align: center; /* Center de titel */
+    font-size: 36px; /* Grotere fontgrootte voor de titel */
+    color: #2c3e50; /* Kleur voor de titel */
+    margin-bottom: 20px; /* Ruimte onder de titel */
+}
+
+.faq-item {
+    background-color: white; /* Achtergrondkleur voor elk FAQ-item */
+    border: 1px solid #ddd; /* Rand voor elk item */
+    border-radius: 5px; /* Ronde hoeken voor elk item */
+    margin-bottom: 15px; /* Ruimte tussen de FAQ-items */
+    padding: 15px; /* Padding binnen elk item */
+}
+
+.faq-item h3 {
+    color: #333; /* Kleur voor de vraag */
+    cursor: pointer; /* Laat de cursor veranderen naar een pointer */
+}
+
+.faq-item p {
+    color: #555; /* Kleur voor het antwoord */
+    display: none; /* Verberg het antwoord standaard */
+    margin-top: 10px; /* Ruimte boven het antwoord */
+}
+
+/* Styling voor als een FAQ-item geopend is */
+.faq-item.open p {
+    display: block; /* Toon het antwoord als het item geopend is */
+}
+
+
+.faq-item p {
+    display: none; /* Zorg ervoor dat de paragrafen standaard verborgen zijn */
+}
+
+.faq-item.open p {
+    display: block; /* Toon de paragraaf wanneer het item open is */
+}
+
+.frequently{
+    color: #8B2B2E;
+}
+
+.asked{
+    color: #2C3E50;
+}
+
+.questions{
+    color: #00718D;
+}
+
+section h1{
+    font-size: 1.8em;
+    margin-bottom: 1em;
+}
+
+
+
+
+////news//
+/* Styles for the news page */
+/* Styles for the news page */
+.containerr {
+    max-width: 1200px; /* Increase the maximum width of the container */
+    width: 100%; /* Ensure the container takes full available width */
+    height: calc(100vh - 150px); /* Keep the height adjustment */
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Enable scrolling if content exceeds the height */
+}
+
+.main-content {
+    max-width: 1200px; /* Set maximum width for the content area */
+    width: 100%; /* Ensure it takes full available width */
+    margin: 20px auto; /* Center it and add vertical spacing */
+    padding: 20px; /* Add padding for breathing space */
+    background-color: #ffffff; /* Set a white background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.news-article {
+    margin-bottom: 30px;
+    display: flex; /* Flexbox for content and image */
+    align-items: flex-start; /* Align items to the top */
+    height: 100%; /* Ensure article takes full height */
+}
+
+.news-content {
+    flex: 1; /* Take up remaining space */
+}
+
+.news-article h3 {
+    font-size: 28px; /* Increase font size for the title */
+    color: #333;
+}
+
+.news-article .date {
+    font-size: 16px; /* Slightly larger date font */
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.news-image {
+    width: 500px; /* Set a fixed width for the image */
+    height: 50vh; /* Set a fixed height for the image */
+    border-radius: 4px; /* Optional: for rounded corners */
+    object-fit: cover; /* Ensures the image fits within its dimensions */
+    margin-left: 20px; /* Space between text and image */
+}
+
+.news-article p {
+    line-height: 1.8; /* Increase line height for better readability */
+    margin-bottom: 15px;
+    color: #555;
+}
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////
+
+//* Contact page specific styles */
+/* General Page Layout */
+/* Adjust the button placement */
+.button-wrapper {
+    margin-top: 20px; /* Adds space between the title and button */
+    display: flex;
+    justify-content: center; /* Centers the button */
+}
+
+.primary-btn {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.3s;
+    text-decoration: none;
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Ensure alignment and spacing in hero */
+.hero h1 {
+    font-size: 48px;
+    color: #fff;
+    text-align: center;
+}
+
+/* Optional: background styling for hero section */
+/*.hero {*/
+/*    background: linear-gradient(135deg, #4A90E2 0%, #9013FE 100%);*/
+/*    padding: 100px 0;*/
+/*}*/
+
+
+.page-background {
+    background: linear-gradient(135deg, #4A90E2 0%, #9013FE 100%);
+    padding: 0px 40px; /* Reduced padding to make it thinner */
+    height: auto; /* Allow height to adjust based on content */
+    margin-bottom: 0; /* Ensure no extra space below this section */
+    margin-top: 0;
+}
+
+/* Footer Styles */
+footer {
+
+
+
+
+
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow effect */
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+
+/* Main Content Styles */
+main {
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+}
+
+/* Footer Styles */
+footer {
+    background: linear-gradient(135deg, #2b5a9b 0%, #5f00b3 100%);
+
+
+    color: #fff;
+    padding: 20px 0; /* You can adjust this as needed */
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow effect */
+    margin: 0; /* Ensure no margin on the footer */
+}
+
+
