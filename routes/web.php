@@ -61,3 +61,7 @@ Route::get('/afspraak', [AfspraakController::class, 'index'])->name('afspraak');
 
 
 Route::get('/webshop', [WebshopController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

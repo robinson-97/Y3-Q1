@@ -1,4 +1,31 @@
 <x-layout>
+
+    <!-- Header Section with Login, Register, and Logout -->
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <!-- Show login and register links for guests -->
+                    @guest
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li><a href="{{ route('register') }}">Register</a></li>
+                    @endguest
+
+                    <!-- Show the user's name and a logout link for authenticated users -->
+                    @auth
+                        <li>Welcome, {{ Auth::user()->name }}</li>
+                        <li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                @csrf
+                                <button type="submit">Logout</button>
+                            </form>
+                        </li>
+                    @endauth
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <div class="page-background">
         <main>
             <section class="hero">
@@ -27,6 +54,17 @@
                 </div>
             </section>
 
+            <!-- Optional Section for Authenticated Users -->
+            @auth
+                <section class="user-dashboard">
+                    <div class="container">
+                        <h2>Welcome back, {{ Auth::user()->name }}!</h2>
+                        <p>Here’s your personalized dashboard:</p>
+                        <!-- Add more dynamic content if necessary -->
+                    </div>
+                </section>
+            @endauth
+
             <section class="iframe">
                 <div class="container">
                     <div class="location">
@@ -38,4 +76,5 @@
             </section>
         </main>
     </div>
+
 </x-layout>
