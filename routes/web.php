@@ -1,13 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AfspraakController;
+use App\Http\Controllers\AppointmentController; // Houd deze import
 use App\Http\Controllers\WebshopController;
+use App\Http\Controllers\HomeController; // Vergeet deze niet te importeren
+use Illuminate\Support\Facades\Auth; // Vergeet deze niet te importeren
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
+|--------------------------------------------------------------------------|
+| Web Routes                                                              |
+|--------------------------------------------------------------------------|
 */
 
 // Homepagina
@@ -49,10 +51,13 @@ Route::get('/views/bedankt', function () {
 })->name('bedankt');
 
 // Afspraken pagina - Alleen toegankelijk voor ingelogde gebruikers
-Route::get('/views/afspraak', [AfspraakController::class, 'index'])->middleware('auth')->name('afspraak');
+Route::get('/views/afspraak', [AppointmentController::class, 'index'])->middleware('auth')->name('afspraak');
+
+// Route voor het opslaan van afspraken
+Route::post('/save-appointment', [AppointmentController::class, 'store'])->name('save.appointment'); // Zorg ervoor dat deze overeenkomt met de store-methode in AppointmentController
 
 // Authenticatie routes (Laravel standaard)
 Auth::routes();
 
 // Gebruikersdashboard/home na inloggen
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/home', [HomeController::class, 'index'])->name('dashboard'); // Gebruik GET in plaats van POST

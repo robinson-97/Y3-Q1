@@ -25,7 +25,10 @@
             <!-- Formulier dat verschijnt na het selecteren van een tijdslot -->
             <div id="appointmentForm" style="display:none;">
                 <h3>Appointment Details</h3>
-                <form method="POST" action="bedankt">
+                <form method="POST" action="{{ route('save.appointment') }}">
+                    @csrf <!-- Dit voegt een CSRF-token toe voor beveiliging -->
+                    <input type="hidden" name="selected_time" id="selectedTime">
+                    <input type="hidden" name="selected_day" id="selectedDay">
 
                     <label for="platform">Selecteer Platform:</label>
                     <select name="device_type" id="platform" required>
@@ -44,12 +47,11 @@
                     <input type="email" name="email" id="email" placeholder="Email" required>
 
                     <label for="telefoonnummer">Telefoon nummer:</label>
-                    <input type="text" name="telefoon_nummer" id="telefoonnummer" placeholder="Phone Number" required>
+                    <input type="text" name="telefoon_nummer" id="telefoonnummer" placeholder="Phone Number" required pattern="\d{10,15}" title="Voer een geldig telefoonnummer in (10-15 cijfers)">
 
                     <label for="problems">Wat zijn de problemen met het apparaat?</label>
                     <textarea name="probleem" id="problems" rows="4" placeholder="Beschrijf de issues..." required></textarea>
 
-                    <!-- Button die pas klikbaar wordt als alle velden zijn ingevuld -->
                     <button type="submit" class="btn" id="submitButton" disabled>Bevestig Afspraak</button>
                 </form>
             </div>
@@ -132,7 +134,10 @@
                         cell.classList.add("selected");
                         selectedSlot = cell;
 
-                        // Toon het afspraakformulier als een tijdslot is geselecteerd
+                        // Bewaar de geselecteerde tijd en dag
+                        document.getElementById("selectedTime").value = cell.getAttribute("data-time");
+                        document.getElementById("selectedDay").value = cell.getAttribute("data-day");
+
                         appointmentForm.style.display = "block";
                     }
                 }
@@ -171,8 +176,6 @@
 
     <section class="picture">
         <div class="container">
-
         </div>
     </section>
 </x-layout>
-
