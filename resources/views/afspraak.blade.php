@@ -9,17 +9,33 @@
         @csrf
 
         <div>
-            <label for="datum">Datum en Tijd:</label>
-            <input type="datetime-local" id="datum" name="datum" required>
-            @error('datum')
+            <label for="product">Om welk product gaat het:</label>
+            <input type="text" id="product" name="product" required maxlength="50" placeholder="Vul hier het product in">
+            @error('product')
             <div>{{ $message }}</div>
             @enderror
         </div>
 
         <div>
-            <label for="opmerkingen">Opmerkingen:</label>
-            <textarea id="opmerkingen" name="opmerkingen"></textarea>
-            @error('opmerkingen')
+            <label for="help_request">Waar kan ik u mee helpen:</label>
+            <textarea id="help_request" name="help_request" required maxlength="200" placeholder="Beschrijf waar u hulp bij nodig heeft"></textarea>
+            @error('help_request')
+            <div>{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div>
+            <label for="phone">Telefoonnummer:</label>
+            <input type="tel" id="phone" name="phone" required maxlength="10" pattern="\d{10}" placeholder="Voer uw telefoonnummer in (10 cijfers)">
+            @error('phone')
+            <div>{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div>
+            <label for="datum">Datum en Tijd:</label>
+            <input type="datetime-local" id="datum" name="datum" required>
+            @error('datum')
             <div>{{ $message }}</div>
             @enderror
         </div>

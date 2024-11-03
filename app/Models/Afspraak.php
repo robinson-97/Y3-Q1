@@ -10,8 +10,12 @@ class Afspraak extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', // Maak user_id fillable
-        'datum',   // Maak datum fillable
-        'opmerkingen', // Maak opmerkingen fillable
+        'user_id',
+        'email',
+        'product',
+        'help_request',
+        'phone',
+        'datum',
+        'opmerkingen',
     ];
 }

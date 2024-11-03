@@ -10,17 +10,6 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
     use RegistersUsers;
 
     /**
@@ -28,7 +17,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/views/home';
 
     /**
      * Create a new controller instance.
@@ -52,6 +41,9 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'street_name' => ['required', 'string', 'max:50'],  // Limit to 50 characters
+            'postal_code' => ['required', 'string', 'regex:/^\d{4}[A-Za-z]{2}$/'], // Must match format 1234AB
+            'house_number' => ['required', 'integer', 'digits_between:1,4'], // Must be between 1 and 4 digits
         ]);
     }
 
@@ -67,6 +59,9 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'street_name' => $data['street_name'],
+            'postal_code' => $data['postal_code'],
+            'house_number' => $data['house_number'],
         ]);
     }
 }

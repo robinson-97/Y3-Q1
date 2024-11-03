@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AfspraakController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\WebshopController; // Make sure to include WebshopController
 use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -24,6 +26,7 @@ Route::get('/views/about', function () {
     return view('about');
 })->name('about');
 
+// Ensure the WebshopController is properly imported and used
 Route::get('/views/webshop', [WebshopController::class, 'index'])->name('webshop');
 
 Route::get('/views/aanvraag', function () {
@@ -34,12 +37,12 @@ Route::get('/views/bedankt', function () {
     return view('bedankt');
 })->name('bedankt');
 
-// Authenticatie routes
+// Authentication routes
 Auth::routes();
 
-// Gebruikersdashboard/home na inloggen
+// User dashboard/home after login
 Route::get('/views/home', [HomeController::class, 'index'])->name('dashboard');
 
-// Afspraak routes
+// Appointment routes
 Route::get('/views/afspraak', [AfspraakController::class, 'create'])->name('afspraak.create');
 Route::post('/views/afspraak', [AfspraakController::class, 'store'])->name('afspraak.store');
