@@ -30,7 +30,7 @@
         <main>
             <section class="hero">
                 <h1 class="h1een">Welcome to Uneed-IT</h1>
-                <p class="peenpm">Uneed-IT Propaganda</p>
+                <p class="peenpm">aanpassing</p>
                 <a href="{{ url('afspraak') }}" class="btn">Make an appointment</a>
             </section>
 
