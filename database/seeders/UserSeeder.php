@@ -2,30 +2,25 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\User;
-use Faker\Factory as Faker; // Import Faker
+use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function run(): void
     {
-        $faker = Faker::create(); // Initialize Faker
+        // Maak 50 willekeurige gebruikers aan
+        User::factory(50)->create();
 
-        // Create 50 users
-        for ($i = 0; $i < 50; $i++) {
+        // Controleer of een testgebruiker met dit e-mailadres al bestaat
+        $testUser = User::where('email', 'test@example.com')->first();
+
+        // Alleen een test gebruiker aanmaken als deze nog niet bestaat
+        if (!$testUser) {
             User::create([
-                'name' => $faker->name,
-                'email' => $faker->unique()->safeEmail,
-                'password' => bcrypt('password'), // Default password
-                'street_name' => $faker->streetName,
-                'postal_code' => $faker->postcode,
-                'house_number' => $faker->buildingNumber,
+                'name' => 'Test User',
+                'email' => 'test@example.com',
+                'password' => bcrypt('password'), // Gebruik een standaard wachtwoord
             ]);
         }
     }

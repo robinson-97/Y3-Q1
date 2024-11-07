@@ -43,6 +43,6 @@ Auth::routes();
 // User dashboard/home after login
 Route::get('/views/home', [HomeController::class, 'index'])->name('dashboard');
 
-// Appointment routes
-Route::get('/views/afspraak', [AfspraakController::class, 'create'])->name('afspraak.create');
-Route::post('/views/afspraak', [AfspraakController::class, 'store'])->name('afspraak.store');
+// Appointment routes - protected by auth middleware
+Route::get('/views/afspraak', [AfspraakController::class, 'create'])->name('afspraak.create')->middleware('auth');
+Route::post('/views/afspraak', [AfspraakController::class, 'store'])->name('afspraak.store')->middleware('auth');

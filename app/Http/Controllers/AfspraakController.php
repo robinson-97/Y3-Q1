@@ -8,34 +8,42 @@ use Illuminate\Support\Facades\Auth;
 
 class AfspraakController extends Controller
 {
-    public function create()
+    // Zorg ervoor dat alleen ingelogde gebruikers toegang hebben tot de afspraakpagina
+    public function __construct()
     {
-        return view('afspraak'); // Returns the view for creating an appointment
+        $this->middleware('auth');
     }
 
+    // Weergave van het formulier om een afspraak te maken
+    public function create()
+    {
+        return view('afspraak'); // Retourneer de view voor het maken van een afspraak
+    }
+
+    // Verwerken en opslaan van de afspraak
     public function store(Request $request)
     {
-        // Validate the incoming request data
+        // Valideer de inkomende gegevens
         $request->validate([
-            'datum' => 'required|date',
-            'product' => 'required|string|max:50', // Product input validation
-            'help_request' => 'required|string|max:200', // Help request input validation
-            'phone' => 'required|string|max:10', // Phone number validation
-            'opmerkingen' => 'nullable|string', // Optional remarks
+            'datum' => 'required|date', // Datum is verplicht en moet een geldige datum zijn
+            'product' => 'required|string|max:50', // Productnaam is verplicht en mag maximaal 50 tekens bevatten
+            'help_request' => 'required|string|max:200', // Hulpverzoek is verplicht en mag maximaal 200 tekens bevatten
+            'phone' => 'required|string|max:10', // Telefoonnummer is verplicht en mag maximaal 10 tekens bevatten
+            'opmerkingen' => 'nullable|string', // Opmerkingen zijn optioneel
         ]);
 
-        // Create a new appointment
+        // Maak een nieuwe afspraak aan in de database
         Afspraak::create([
-            'user_id' => Auth::id(), // Current logged-in user's ID
-            'email' => Auth::user()->email, // Get the email of the logged-in user
-            'product' => $request->input('product'), // Get product from the request
-            'help_request' => $request->input('help_request'), // Get help request from the request
-            'phone' => $request->input('phone'), // Get phone from the request
-            'datum' => $request->input('datum'), // Get date from the request
-            'opmerkingen' => $request->input('opmerkingen'), // Get remarks from the request
+            'user_id' => Auth::id(), // ID van de ingelogde gebruiker
+            'email' => Auth::user()->email, // Email van de ingelogde gebruiker
+            'product' => $request->input('product'), // Product waarvoor de afspraak wordt gemaakt
+            'help_request' => $request->input('help_request'), // Hulpverzoek
+            'phone' => $request->input('phone'), // Telefoonnummer
+            'datum' => $request->input('datum'), // Datum en tijd van de afspraak
+            'opmerkingen' => $request->input('opmerkingen'), // Eventuele opmerkingen
         ]);
 
-        // Redirect back to the create appointment view with a success message
+        // Stuur de gebruiker terug naar het formulier met een succesbericht
         return redirect()->route('afspraak.create')->with('success', 'Afspraak succesvol ingepland!');
     }
 }

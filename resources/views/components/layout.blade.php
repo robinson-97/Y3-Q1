@@ -11,6 +11,7 @@
     @vite(['resources/css/nieuws.css'])
     @vite(['resources/css/about.css'])
     @vite(['resources/css/aanvraag.css'])
+    @vite(['resources/css/afspraak.css'])
 </head>
 <body>
 <header>
